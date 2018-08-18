@@ -10,7 +10,7 @@ public class ReadonlyMoveCollection
 
     public ReadonlyMoveCollection()
     {
-        moveList = new ArrayList<Move>();
+        moveList = new ArrayList<>();
     }
 
     public Move[] getMoves(){

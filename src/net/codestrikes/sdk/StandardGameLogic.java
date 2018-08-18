@@ -41,7 +41,6 @@ public class StandardGameLogic implements IGameLogic {
 
     public boolean validateRound(int roundNumber, int f1Points, int f2Points) {
         if (roundNumber >= getMaxRounds() && f1Points > 0 && f2Points > 0) return false;
-        if (f1Points < 0 && f2Points < 0) return false;
-        return true;
+        return f1Points >= 0 || f2Points >= 0;
     }
 }
