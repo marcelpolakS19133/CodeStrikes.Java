@@ -30,7 +30,7 @@ public class Fight
         {
             round++;
 
-            RoundContext bot1Context = new RoundContext(f2Move, score1, score2);
+            RoundContext bot1Context = new RoundContext(f2Move, score1, score2, f1Lifepoints, f2Lifepoints);
 
             MoveCollection moves = null;
 
@@ -48,7 +48,7 @@ public class Fight
                 return FightResults.Error(FightResultErrorType.IllegalMove, FightResultType.Lost, bot1 + " made an illegal move").SetRoundResults(roundResults);
 
 
-            RoundContext bot2Context = new RoundContext(f1Move, score2, score1);
+            RoundContext bot2Context = new RoundContext(f1Move, score2, score1, f2Lifepoints, f1Lifepoints);
             try
             {
                 moves = bot2.nextMove(bot2Context);
