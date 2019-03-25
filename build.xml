@@ -1,0 +1,32 @@
+<project>
+
+  <target name="clean">
+    <delete dir="out"/>
+  </target>
+
+  <target name="compile">
+    <mkdir dir="out/production"/>
+    <javac srcdir="src" destdir="out/production">
+      <classpath>
+        <fileset dir="lib">
+          <include name="*.jar" />
+        </fileset>
+      </classpath>
+    </javac>
+  </target>
+
+  <target name="jar">
+    <mkdir dir="out/artifacts"/>
+    <jar destfile="out/artifacts/codestrikes.java.adapter.jar" basedir="out/production">
+      <manifest>
+        <attribute name="Main-Class" value="net.codestrikes.adapter.Main"/>
+      </manifest>
+      <zipgroupfileset dir="lib" includes="*.jar"/>
+    </jar>
+  </target>
+
+  <target name="run">
+    <java jar="out/artifacts/codestrikes.java.adapter.jar" fork="true"/>
+  </target>
+
+</project>
